@@ -15,7 +15,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="二、安装Nginx"><a href="#二、安装Nginx" class="headerlink" title="二、安装Nginx"></a>二、安装Nginx</h2><p>运行下面的命令来安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nginx</span><br></pre></td></tr></table></figure>
 
 <p>安装完成后将Nginx加入开机自启</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/<span class="built_in">local</span>/opt/nginx/homebrew.mxcl.nginx.plist ~/Library/LaunchAgents/</span><br><span class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist</span><br></pre></td></tr></table></figure>
@@ -25,15 +25,15 @@
 
 <p>如果nginx启动报错：<code>nginx: [error] open() &quot;/usr/local/var/run/nginx.pid&quot; failed (2: No such file or directory)</code></p>
 <p>执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -c /usr/local/etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -c /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
 
 <h2 id="三、安装MySql"><a href="#三、安装MySql" class="headerlink" title="三、安装MySql"></a>三、安装MySql</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql@5.7</span><br></pre></td></tr></table></figure>
 
 <p>安装完成后开启mysql：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/opt/mysql@5.7/bin/mysql.server start</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@5.7/bin/mysql.server start</span><br></pre></td></tr></table></figure>
 
 <p>然后设置密码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/opt/mysql@5.7/bin/mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/<span class="built_in">local</span>/opt/mysql@5.7/bin/mysql_secure_installation</span><br></pre></td></tr></table></figure>
 
 <p>根据提示操作即可</p>
 <p>将MySql加入开机自启（路径根据版本而定）</p>
@@ -42,7 +42,7 @@
 <h2 id="四、安装PHP"><a href="#四、安装PHP" class="headerlink" title="四、安装PHP"></a>四、安装PHP</h2><h3 id="1-安装PHP"><a href="#1-安装PHP" class="headerlink" title="1.安装PHP"></a>1.安装PHP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install php@7.1</span><br></pre></td></tr></table></figure>
 
 <p>将php加入环境变量，运行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;export PATH=&quot;/usr/local/opt/php@7.1/bin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</span><br><span class="line">echo &apos;export PATH=&quot;/usr/local/opt/php@7.1/sbin:$PATH&quot;&apos; &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/opt/php@7.1/bin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="/usr/local/opt/php@7.1/sbin:$PATH"'</span> &gt;&gt; ~/.bash_profile</span><br></pre></td></tr></table></figure>
 
 <p>关闭终端，重新打开</p>
 <h3 id="2-安装PHP扩展"><a href="#2-安装PHP扩展" class="headerlink" title="2.安装PHP扩展"></a>2.安装PHP扩展</h3><p>我们可以使用<code>pecl</code>命令来安装PHP拓展，如果你安装的PHP版本&gt;=7.1，pecl也一同安装好了。</p>
@@ -54,17 +54,17 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services restart php@7.1</span><br></pre></td></tr></table></figure>
 
 <h2 id="五、安装redis"><a href="#五、安装redis" class="headerlink" title="五、安装redis"></a>五、安装redis</h2><p>同理，运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install redis</span><br></pre></td></tr></table></figure>
 
 <h2 id="六、命令"><a href="#六、命令" class="headerlink" title="六、命令"></a>六、命令</h2><p>可能会用到的一些命令： </p>
-<h3 id="1-搜索"><a href="#1-搜索" class="headerlink" title="1. 搜索"></a>1. 搜索</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search php</span><br></pre></td></tr></table></figure>
+<h3 id="1-搜索"><a href="#1-搜索" class="headerlink" title="1. 搜索"></a>1. 搜索</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search php</span><br></pre></td></tr></table></figure>
 
 <p><img src="http://images.mokeee.com/blog/brew_search.jpg" alt></p>
-<h3 id="2-安装卸载"><a href="#2-安装卸载" class="headerlink" title="2.安装卸载"></a>2.安装卸载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install\uninstall php@7.1</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装卸载"><a href="#2-安装卸载" class="headerlink" title="2.安装卸载"></a>2.安装卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install\uninstall php@7.1</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-启动-重启-停止服务："><a href="#3-启动-重启-停止服务：" class="headerlink" title="3.启动\重启\停止服务："></a>3.启动\重启\停止服务：</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services start\restart\stop nginx\mysql@5.7\php@7.1</span><br></pre></td></tr></table></figure>
+<h3 id="3-启动-重启-停止服务："><a href="#3-启动-重启-停止服务：" class="headerlink" title="3.启动\重启\停止服务："></a>3.启动\重启\停止服务：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services start\restart\stop nginx\mysql@5.7\php@7.1</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-查看某个包的信息："><a href="#4-查看某个包的信息：" class="headerlink" title="4.查看某个包的信息："></a>4.查看某个包的信息：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info nginx</span><br></pre></td></tr></table></figure>
+<h3 id="4-查看某个包的信息："><a href="#4-查看某个包的信息：" class="headerlink" title="4.查看某个包的信息："></a>4.查看某个包的信息：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew info nginx</span><br></pre></td></tr></table></figure>
 
 <p>该命令会显示安装路径、配置文件等信息</p>
 <p><img src="http://images.mokeee.com/blog/brew_info.jpg" alt></p>
