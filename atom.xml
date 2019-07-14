@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mokeee.com/"/>
-  <updated>2019-07-11T09:16:50.093Z</updated>
+  <updated>2019-07-14T09:33:13.421Z</updated>
   <id>https://mokeee.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shell脚本学习笔记</title>
+    <link href="https://mokeee.com/2019/07/14/shell-script-leaning/"/>
+    <id>https://mokeee.com/2019/07/14/shell-script-leaning/</id>
+    <published>2019-07-14T07:23:20.000Z</published>
+    <updated>2019-07-14T09:33:13.421Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><blockquote><p>本文所写内容主要是根据网络教程和自我理解所得，如有错误之处，请指出。</p></blockquote><h1 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h1><p>一般shell脚本的第一行都是以 <code>!#/bin/sh</code> 开头，<code>!#</code> 标识用什么解释器来执行此脚本。</p><p>解释器的种类很多，比较常见的就是：</p><ul><li><code>/bin/sh</code></li><li><code>/bin/bash</code></li></ul><h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p>在一行开头使用<code>#</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># author: 你的小可爱</span></span><br><span class="line"><span class="comment"># date: 2019-07-14</span></span><br></pre></td></tr></table></figure><p>shell中没有多行注释</p><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><ul><li>只能使用字母、数字、下划线，不能以数字开头</li><li>不能使用特殊符号</li><li>不能使用关键字</li></ul><p>变量名示例：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id</span><br><span class="line">USERNAME</span><br><span class="line">favorite</span><br><span class="line">favorite2</span><br><span class="line">_sex</span><br></pre></td></tr></table></figure><h2 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h2><h3 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="string">"你的小可爱"</span></span><br></pre></td></tr></table></figure><p>注意点：</p><ol><li>定义变量时，变量名不需要使用<code>$</code>符号</li><li>等号前后不能有空格</li></ol><h3 id="使用变量-1"><a href="#使用变量-1" class="headerlink" title="使用变量"></a>使用变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;name&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"我的名字是：<span class="variable">$&#123;name&#125;</span>"</span></span><br><span class="line"></span><br><span class="line">name=<span class="string">"大家的小可爱"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$name</span></span><br></pre></td></tr></table></figure><p>注意点：</p><ol><li>定义变量时变量名前不需要加<code>$</code>，但使用时需要加<code>$</code>。</li><li>重新定义变量时，变量名前不需要加<code>$</code>,只在使用变量时才加。</li></ol><h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="单双引号"><a href="#单双引号" class="headerlink" title="单双引号"></a>单双引号</h2><p>在shell中字符串可以使用单引号、双引号，也可以不使用。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">'Hello World.'</span></span><br><span class="line">str2=<span class="string">"你好世界"</span></span><br><span class="line">str3=泥豪啊</span><br></pre></td></tr></table></figure><p>注意点：</p><ol><li>单引号中的内容会原样输出，单引号中的变量无效</li><li>单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行）</li><li>双引号中可以使用变量和转义字符</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age=18;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'my age is $&#123;age&#125;'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"my age is <span class="variable">$&#123;age&#125;</span> \nHow old are you?"</span></span><br></pre></td></tr></table></figure><p>输出：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my age is $&#123;age&#125;</span><br><span class="line">my age is 18</span><br><span class="line">How old are you?</span><br></pre></td></tr></table></figure><h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="string">"你的小可爱"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"你好，我是<span class="variable">$&#123;name&#125;</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"你好，我是"</span><span class="variable">$name</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"你好，我是"</span><span class="variable">$name</span><span class="string">"，哈哈"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'你好，我是'</span><span class="variable">$name</span><span class="string">'，哈哈'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 你好，我是你的小可爱</span></span><br><span class="line"><span class="comment"># 你好，我是你的小可爱</span></span><br><span class="line"><span class="comment"># 你好，我是你的小可爱，哈哈</span></span><br><span class="line"><span class="comment"># 你好，我是你的小可爱，哈哈</span></span><br></pre></td></tr></table></figure><h3 id="字符串长度"><a href="#字符串长度" class="headerlink" title="字符串长度"></a>字符串长度</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">"hello"</span>;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#str&#125;</span>;</span><br><span class="line"><span class="comment">#输出：5</span></span><br></pre></td></tr></table></figure><h3 id="字符串截取"><a href="#字符串截取" class="headerlink" title="字符串截取"></a>字符串截取</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">str=<span class="string">"abcdefg"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;str:1:3&#125;</span> </span><br><span class="line"><span class="comment"># 输出 bcd</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;str:0:4&#125;</span></span><br><span class="line"><span class="comment"># 输出 abcd</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;本文所写内容主要是根据网络教程和自我理解所得，如有错误之处，请指出。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;解释器&quot;&gt;&lt;a href=&quot;#解释器&quot; class=&quot;headerlink&quot; title
+      
+    
+    </summary>
+    
+      <category term="Shell" scheme="https://mokeee.com/categories/Shell/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>使用Redis锁来处理并发</title>
@@ -62,33 +90,6 @@
       <category term="openSSL" scheme="https://mokeee.com/tags/openSSL/"/>
     
       <category term="RSA" scheme="https://mokeee.com/tags/RSA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac上使用Homebrew安装go</title>
-    <link href="https://mokeee.com/2019/06/22/go-start/"/>
-    <id>https://mokeee.com/2019/06/22/go-start/</id>
-    <published>2019-06-22T15:46:47.000Z</published>
-    <updated>2019-06-22T16:08:14.802Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近准备学go，首先当然是安装开发环境了，贴一下安装过程。😬</p><blockquote><p>我的电脑是Mac，使用Homebrew来安装go。</p></blockquote><h3 id="安装go"><a href="#安装go" class="headerlink" title="安装go"></a>安装go</h3><p>使用Homebrew安装go</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install go</span><br></pre></td></tr></table></figure><p><img src="http://images.mokeee.com/blog/20190622234531.png" alt></p><p>安装完成，检查一下</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go version</span><br></pre></td></tr></table></figure><p><img src="http://images.mokeee.com/blog/20190623000634.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近准备学go，首先当然是安装开发环境了，贴一下安装过程。😬&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我的电脑是Mac，使用Homebrew来安装go。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;安装go&quot;&gt;&lt;a href=&quot;#安装go&quot; class=&quot;head
-      
-    
-    </summary>
-    
-      <category term="go" scheme="https://mokeee.com/categories/go/"/>
-    
     
   </entry>
   
