@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mokeee.com/2019/07/14/shell-script-leaning/</loc>
+    <loc>https://mokeee.com/2019/07/10/redis-lock/</loc>
     <lastmod>2019-07-14</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/07/10/redis-lock/</loc>
-    <lastmod>2019-07-11</lastmod>
+    <loc>https://mokeee.com/2019/07/14/shell-script-leaning/</loc>
+    <lastmod>2019-07-14</lastmod>
   </url>  <url>
     <loc>https://mokeee.com/2019/07/09/open-ssl-rsa-sign-encrypt/</loc>
     <lastmod>2019-07-10</lastmod>
