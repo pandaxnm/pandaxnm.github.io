@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mokeee.com/2019/01/06/safari-cookie/</loc>
+    <loc>https://blog.mokeee.com/2019/01/06/safari-cookie/</loc>
     <lastmod>2020-01-06</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/07/10/redis-lock/</loc>
+    <loc>https://blog.mokeee.com/2019/07/10/redis-lock/</loc>
     <lastmod>2020-01-06</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/12/06/mongodb-learning/</loc>
+    <loc>https://blog.mokeee.com/2019/12/06/mongodb-learning/</loc>
     <lastmod>2020-01-06</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2020/01/05/api-simple-encrypt/</loc>
+    <loc>https://blog.mokeee.com/2020/01/05/api-simple-encrypt/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/07/14/shell-script-leaning/</loc>
+    <loc>https://blog.mokeee.com/2019/07/14/shell-script-leaning/</loc>
     <lastmod>2019-07-22</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/07/09/open-ssl-rsa-sign-encrypt/</loc>
+    <loc>https://blog.mokeee.com/2019/07/09/open-ssl-rsa-sign-encrypt/</loc>
     <lastmod>2019-07-10</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/06/09/mac-homebrew-lnmp/</loc>
+    <loc>https://blog.mokeee.com/2019/06/09/mac-homebrew-lnmp/</loc>
     <lastmod>2019-06-09</lastmod>
   </url>  <url>
-    <loc>https://mokeee.com/2019/01/12/word-to-excel-use-php/</loc>
+    <loc>https://blog.mokeee.com/2019/01/12/word-to-excel-use-php/</loc>
     <lastmod>2019-06-09</lastmod>
   </url>
 </urlset>
