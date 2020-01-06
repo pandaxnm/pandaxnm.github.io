@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Charge Xiong</title>
+<title>MongoDB-Charts可视化图表分析工具安装使用 - Charge Xiong</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Charge Xiong">
-<meta property="og:url" content="https://blog.mokeee.com/index.html">
+    <meta name="description" content="MongoDB-Charts是创建MongoDB数据可视化的最佳方法。作为数据源连接到任何MongoDB实例，创建图表和图形，将它们嵌入到您的应用程序中，或构建实时仪表板以进行共享和协作。">
+<meta name="keywords" content="MongoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB-Charts可视化图表分析工具安装使用">
+<meta property="og:url" content="https://blog.mokeee.com/2020/01/06/mongdb-charts/index.html">
 <meta property="og:site_name" content="Charge Xiong">
+<meta property="og:description" content="MongoDB-Charts是创建MongoDB数据可视化的最佳方法。作为数据源连接到任何MongoDB实例，创建图表和图形，将它们嵌入到您的应用程序中，或构建实时仪表板以进行共享和协作。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://blog.mokeee.com/images/og_image.png">
+<meta property="og:updated_time" content="2020-01-06T14:22:30.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Charge Xiong">
+<meta name="twitter:title" content="MongoDB-Charts可视化图表分析工具安装使用">
+<meta name="twitter:description" content="MongoDB-Charts是创建MongoDB数据可视化的最佳方法。作为数据源连接到任何MongoDB实例，创建图表和图形，将它们嵌入到您的应用程序中，或构建实时仪表板以进行共享和协作。">
 <meta name="twitter:image" content="https://blog.mokeee.com/images/og_image.png">
 
 
@@ -74,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Charge Xiong" height="28">
+                <img src="/images/logo.svg" alt="MongoDB-Charts可视化图表分析工具安装使用" height="28">
             
             </a>
         </div>
@@ -82,7 +87,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/">Home</a>
                 
                 <a class="navbar-item"
@@ -124,7 +129,6 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
-    
 <div class="card">
     
     <div class="card-content article ">
@@ -144,21 +148,78 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/06/mongdb-charts/">MongoDB-Charts可视化图表分析工具安装使用</a>
+                MongoDB-Charts可视化图表分析工具安装使用
             
         </h1>
         <div class="content">
             <p><a href="https://www.mongodb.com/products/charts">MongoDB-Charts</a>是创建MongoDB数据可视化的最佳方法。作为数据源连接到任何MongoDB实例，创建图表和图形，将它们嵌入到您的应用程序中，或构建实时仪表板以进行共享和协作。</p>
+<a id="more"></a>
+
+<p><a href="https://docs.mongodb.com/charts/master/">官方介绍文档</a></p>
+<p><a href="https://docs.mongodb.com/charts/onprem/installation/">官方安装文档</a></p>
+<p><img src="http://images.mokeee.com/sample-dashboard.png" alt=""></p>
+<p><img src="http://images.mokeee.com/ArrayReductionChart-wnwfii0xsk.gif" alt=""></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>MongoDB： &gt;= 3.6<br>Docker： Docker CE或EE&gt;=v17.06</p>
+<h2 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir mongodb-charts</span><br><span class="line"><span class="built_in">cd</span> mongodb-charts</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载Docker-Compose"><a href="#下载Docker-Compose" class="headerlink" title="下载Docker Compose"></a>下载Docker Compose</h2><p><a href="https://www.mongodb.com/download-center/charts">https://www.mongodb.com/download-center/charts</a></p>
+<h2 id="启用Docker-Swarm模式"><a href="#启用Docker-Swarm模式" class="headerlink" title="启用Docker Swarm模式"></a>启用Docker Swarm模式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker swarm init</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull quay.io/mongodb/charts:19.12.1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>版本号根据实际情况而定<br>下载可能需要一段时间。</p>
+</blockquote>
+<h2 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm quay.io/mongodb/charts:v0.10.0 charts-cli <span class="built_in">test</span>-connection mongodb://&lt;username&gt;:&lt;password&gt;@yourhost/</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果你需要连接本地的MongDB作为数据源，在填写host时不能使用<code>localhost</code></p>
+</blockquote>
+<ul>
+<li>对于Docker 18.03及更高版本：</li>
+<li>对于Windows和macOS，请使用mongodb://host.docker.internal。</li>
+<li>对于Linux，请使用docker0接口的IP地址。通常，此地址为172.17.0.1。</li>
+<li>对于Docker版本17.06至不包括18.03：</li>
+<li>对于Windows，请使用mongodb://docker.for.win.localhost。</li>
+<li>对于macOS，请使用mongodb://docker.for.mac.localhost。</li>
+<li>对于Linux，请使用docker0接口的IP地址。通常，此地址为172.17.0.1。</li>
+</ul>
+<p>如果连接成功，将会显示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MongoDB connection URI successfully verified.</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建docker-secret"><a href="#创建docker-secret" class="headerlink" title="创建docker secret"></a>创建docker secret</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"&lt;Verified connection string URI from step 5&gt;"</span> | docker secret create charts-mongodb-uri -</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"mongodb://admin:password@localhost:27017/"</span> | docker secret create charts-mongodb-uri -</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stack deploy -c charts-docker-compose-v19.12.1.yml mongodb-charts</span><br></pre></td></tr></table></figure>
+
+<h2 id="验证容器是否在运行"><a href="#验证容器是否在运行" class="headerlink" title="验证容器是否在运行"></a>验证容器是否在运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker service ls</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ID             NAME                    MODE         REPLICAS   IMAGE                   PORTS</span><br><span class="line">j77uo3slyg4l   mongodb-charts_charts   replicated   1/1        mongodb-charts:latest   *:80-&gt;80/tcp</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h2><p>以Mac为例，将下面的<field>替换为自己的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it \</span><br><span class="line">  $(docker container ls --filter name=_charts -q) \</span><br><span class="line">  charts-cli add-user --first-name <span class="string">"&lt;First&gt;"</span> --last-name <span class="string">"&lt;Last&gt;"</span> \</span><br><span class="line">  --email <span class="string">"&lt;user@example.com&gt;"</span> --password <span class="string">"&lt;Password&gt;"</span> \</span><br><span class="line">  --role <span class="string">"&lt;UserAdmin|User&gt;"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动和停止MongoDB图表"><a href="#启动和停止MongoDB图表" class="headerlink" title="启动和停止MongoDB图表"></a>启动和停止MongoDB图表</h2><p>启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stack deploy -c charts-docker-compose-v19.12.1.yml mongodb-charts</span><br></pre></td></tr></table></figure>
+
+<p>停止：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stack rm mongodb-charts</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>输入<code>localhost:8180</code>进入MongoDB-Charts的WEB页面<br>使用刚才设置的用户名密码登录</p>
+<h2 id="添加数据源"><a href="#添加数据源" class="headerlink" title="添加数据源"></a>添加数据源</h2><h2 id="添加图表"><a href="#添加图表" class="headerlink" title="添加图表"></a>添加图表</h2><h2 id="按需生成图表"><a href="#按需生成图表" class="headerlink" title="按需生成图表"></a>按需生成图表</h2>
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/06/mongdb-charts/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/MongoDB/">MongoDB</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -166,377 +227,55 @@
 
 
 
-
-
-
-
-
-    
 <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-05T14:21:22.000Z">2020-01-05</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Skills/">Skills</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
             
-                <a class="has-link-black-ter" href="/2020/01/05/api-simple-encrypt/">简单的接口加密</a>
-            
-        </h1>
-        <div class="content">
-            <p>在前后端的数据传输中，为了保证数据安全等原因，我们需要对传输的数据进行加密。</p>
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/05/api-simple-encrypt/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-06T13:05:01.000Z">2019-12-06</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/MongoDB/">MongoDB</a>
-                </div>
-                
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/05/api-simple-encrypt/">
+                <span class="level-item">简单的接口加密</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/12/06/mongodb-learning/">MongoDB使用</a>
-            
-        </h1>
-        <div class="content">
-            <p> MongoDB</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/12/06/mongodb-learning/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
         
     </div>
 </div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-14T07:23:20.000Z">2019-07-14</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Shell/">Shell</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/14/shell-script-leaning/">Shell脚本学习笔记</a>
-            
-        </h1>
-        <div class="content">
-            <p>这是用来记录学习shell的文章。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/14/shell-script-leaning/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-10T15:05:49.000Z">2019-07-10</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/10/redis-lock/">使用Redis锁来处理并发</a>
-            
-        </h1>
-        <div class="content">
-            <p>Redis</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/10/redis-lock/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-07-09T03:56:32.000Z">2019-07-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/07/09/open-ssl-rsa-sign-encrypt/">使用OpenSSL进行RSA签名和加密解密</a>
-            
-        </h1>
-        <div class="content">
-            <p>PHP7之后，mcrypt扩展就已经被弃用，我们可以使用OpenSSL拓展来代替。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/07/09/open-ssl-rsa-sign-encrypt/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-09T09:18:39.000Z">2019-06-09</time>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/06/09/mac-homebrew-lnmp/">Mac上使用Homebrew搭建LNMP环境（简要版）</a>
-            
-        </h1>
-        <div class="content">
-            <p>最近发现自己这台Mac充电口已经糊掉了，并且使用的时候发热严重，于是向公司申请了一台。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/06/09/mac-homebrew-lnmp/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-12T08:24:06.000Z">2019-01-12</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/PHP/">PHP</a>
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/12/word-to-excel-use-php/">记一次使用PHP将word转为excel的经历</a>
-            
-        </h1>
-        <div class="content">
-            <p>昨天一位朋友找到我，说他手上有几千个word表格需要转换到一个excel文件里，他在网上也没有找到满足需求的软件，于是让我帮忙用程序实现。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/12/word-to-excel-use-php/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-06T07:30:59.000Z">2019-01-06</time>
-                
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/01/06/safari-cookie/">Safari【阻止跨网站追踪】遇到的问题</a>
-            
-        </h1>
-        <div class="content">
-            <p>Safari Cookie</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/01/06/safari-cookie/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
 
 
 </div>
@@ -758,7 +497,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Charge Xiong" height="28">
+                    <img src="/images/logo.svg" alt="MongoDB-Charts可视化图表分析工具安装使用" height="28">
                 
                 </a>
                 <p class="is-size-7">
