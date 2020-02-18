@@ -91,7 +91,7 @@ figure.highlight .gutter .line,
 figure.highlight .line,
 .codeblock .line {
   font-size: 13px;
-  color: #999;
+  color: #eee;
 }
 figure.highlight .line.marked,
 .codeblock .line.marked {
@@ -101,6 +101,9 @@ figure.highlight .code,
 .codeblock .code {
   padding: 0.3em 15px 0.3em 1em;
   width: 100%;
+/* pre
+      white-space: pre-wrap
+      word-wrap: break-word */
 }
 .gist .line,
 .gist .line-number {
@@ -109,9 +112,14 @@ figure.highlight .code,
   margin: 0 0 5px 0;
 }
 /* code highlight color*/
-.highlight .comment,
+.highlight .comment {
+  color: #444;
+}
 .highlight .title {
   color: #888;
+}
+.highlight .doctag {
+  color: #969896;
 }
 .highlight .meta,
 .highlight .tag {
@@ -126,7 +134,7 @@ figure.highlight .code,
 .highlight .header,
 .highlight .ruby .symbol,
 .highlight .xml .cdatabody {
-  color: #920000;
+  color: #4df799;
 }
 .highlight .keyword,
 .highlight .javascript .function {
@@ -305,11 +313,12 @@ figure.highlight .code,
 .highlight.java .code .number {
   color: #0086b3;
 }
-.highlight.java .code .javadoc {
+.highlight.java .code .javadoc,
+.highlight.java .code .doctag {
   color: #969896;
 }
 .highlight.java .code .params {
-  color: #1d3e81;
+  color: #6295fb;
 }
 .highlight.java .code .meta,
 .highlight.java .code .annotation,
@@ -554,11 +563,4 @@ figure.highlight .code,
 .highlight.yml .code .line,
 .highlight.yml .code .attr {
   color: #795da3;
-}
-.highlight.yml .code .line,
-.highlight.yml .code .string,
-.highlight.yml .code .type,
-.highlight.yml .code .literal,
-.highlight.yml .code .meta {
-  color: #920000;
 }
